@@ -1,14 +1,16 @@
 import sys
-from ruler import Ruler
+from ruler import Ruler #on importe notre classe
 
-file_name = sys.argv[1] #sys.argv permet de créer une liste avec les argumetns rentrer dans cmd
+file_name = sys.argv[1] #sys.argv permet de créer une liste avec les arguments rentrés dans cmd
 fichier1 = open(file_name, "r") #on met en deuxième le nom du fichier à lire
 
 L = [] #L est une liste contenant les strings contenu dans le fichier texte
 
 for ligne in fichier1:
     l = ligne.replace('\n', "") #on enlève les \n dans chaque string
-    L.append(l)
+
+    if l != "": #si jamais on a une ligne vide, on passe à la ligne suivante
+        L.append(l)
 
 i = 0
 
